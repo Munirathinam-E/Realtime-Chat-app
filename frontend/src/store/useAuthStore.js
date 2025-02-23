@@ -17,7 +17,7 @@ export const useAuthStore=create((set,get)=>({
             set({authUser:res.data});
             get().connectSocket()
         }catch(error){
-            console.log("Error in checkAuth:",error);
+            console.log("Error in checkAuth :",error);
             set({authUser:null});
         }finally{
             set({isCheckingAuth:false});
@@ -27,7 +27,7 @@ export const useAuthStore=create((set,get)=>({
 
 
     login: async (data) => {
-        console.log("Login Payload:", JSON.stringify(data, null, 2)); // Better logging format
+        console.log("Login Payload :", JSON.stringify(data, null, 2)); // Better logging format
         set({ isLoggingIn: true });
         try {
             const res = await axiosInstance.post("/auth/login", data);
